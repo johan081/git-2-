@@ -23,7 +23,7 @@
 				}
 			}
 
-			if(!isset($_GET['page']))
+			if(!isset($_GET['page']) OR $_GET['page'] < 1)
 			{
 				$page=1;
 			}
@@ -64,6 +64,7 @@
 				echo "<br> Pages : ";
 
 				if ($page > 1) {
+
 					echo "<a href='commentaires.php?page=1'> << </a>";
 					echo "<a href='commentaires.php?page=".($page-1)."'> < </a>";
 
@@ -87,6 +88,7 @@
 
 				echo "<a href='commentaires.php?page=".($page+1)."'> > </a>";
 				echo "<a href='commentaires.php?page=$nbpages'> >> </a>";
+				
 			}
 
 			mysqli_close($lien);
